@@ -261,6 +261,7 @@ static void do_kernel_restart_prepare(void)
  *
  *	Shutdown everything and perform a clean reboot.
  *	This is not safe to call in interrupt context.
+ *	free() before reboot initial commence
  */
 void kernel_restart(char *cmd)
 {
