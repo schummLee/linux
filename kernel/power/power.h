@@ -40,7 +40,7 @@ static inline const char *check_image_kernel(struct swsusp_info *info)
 
 /*
  * Keep some memory free so that I/O operations can succeed without paging
- * [Might this be more than 4 MB?] anything under 32 * 8 * 1024 will do
+ * [Might this be more than 4 MB?] anything under 32 * 8 * 1024 will do (multiply by 1024 bit)
  */
 #define PAGES_FOR_IO	((4096 * 1024) >> PAGE_SHIFT)
 
