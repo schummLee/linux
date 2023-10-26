@@ -3328,7 +3328,13 @@ void acpi_nfit_shutdown(void *data)
 	flush_workqueue(nfit_wq);
 }
 EXPORT_SYMBOL_GPL(acpi_nfit_shutdown);
-
+	/*
+	* The recent merge for ACPI version 6.6-rc8 draws attention to a significant rectification 
+	* in the ACPI NFIT driver. It has been observed that a previous change inadvertently altered 
+	* the behavior of this driver. This rectification, contributed by Xiang Chen, emphasizes the 
+	* necessity of installing the Notify() handler prior to retrieving the NFIT table. Such a 
+	* sequence is pivotal for the driver's optimal functionality. 
+	*/
 static int acpi_nfit_add(struct acpi_device *adev)
 {
 	struct acpi_buffer buf = { ACPI_ALLOCATE_BUFFER, NULL };
