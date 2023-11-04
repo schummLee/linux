@@ -104,6 +104,7 @@ static void s2idle_enter(void)
 	wake_up_all_idle_cpus();
 	/* Make the current CPU wait so it can enter the idle loop too. */
 	/* leave at least one  CPU ongoing before screen go into dark */
+	/* these can cope with .deb (i386, amd64, armhf, arm64) and .rpm (64-bit x86) systems */
 	swait_event_exclusive(s2idle_wait_head,
 		    s2idle_state == S2IDLE_STATE_WAKE);
 
